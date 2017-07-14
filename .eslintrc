@@ -1,23 +1,11 @@
 {
   "parser": "babel-eslint",          // https://github.com/babel/babel-eslint
-  "extends": ["plugin:import/errors", "plugin:import/warnings"],
   "plugins": [
-    "babel",
-    "react",                         // https://github.com/yannickcr/eslint-plugin-react
-    "import"
+    "react"                          // https://github.com/yannickcr/eslint-plugin-react
   ],
-  "settings" : {
-    "import/resolver": {
-      "webpack": {}
-    }
-  },
-  "globals": {
-    "_": true
-  },
   "env": {                           // http://eslint.org/docs/user-guide/configuring.html#specifying-environments
     "browser": true,                 // browser global variables
-    "node": true,                     // Node.js global variables and Node.js-specific rules
-    "es6": true
+    "node": true                     // Node.js global variables and Node.js-specific rules
   },
   "ecmaFeatures": {
     "arrowFunctions": true,
@@ -63,7 +51,6 @@
 /**
  * Possible errors
  */
-    "no-undef":2,
     "comma-dangle": [2, "always-multiline"],    // http://eslint.org/docs/rules/comma-dangle
     "no-cond-assign": [2, "always"], // http://eslint.org/docs/rules/no-cond-assign
     "no-console": 1,                 // http://eslint.org/docs/rules/no-console
@@ -89,7 +76,7 @@
 /**
  * Best practices
  */
-    "consistent-return": 0,          // http://eslint.org/docs/rules/consistent-return
+    "consistent-return": 2,          // http://eslint.org/docs/rules/consistent-return
     "curly": [2, "multi-line"],      // http://eslint.org/docs/rules/curly
     "default-case": 2,               // http://eslint.org/docs/rules/default-case
 /*    "dot-notation": [2, {            // http://eslint.org/docs/rules/dot-notation
@@ -133,7 +120,7 @@
 /**
  * Style
  */
-    "indent": [2, 2],                // http://eslint.org/docs/rules/indent
+    "indent": [2, 4],                // http://eslint.org/docs/rules/indent
     "brace-style": [2,               // http://eslint.org/docs/rules/brace-style
       "1tbs", {
       "allowSingleLine": true
@@ -176,11 +163,10 @@
       "before": false,
       "after": true
     }],
-    "keyword-spacing": [2], // http://eslint.org/docs/rules/space-after-keywords
+    "keyword-spacing": 2,            // http://eslint.org/docs/rules/keyword-spacing
     "space-before-blocks": 2,        // http://eslint.org/docs/rules/space-before-blocks
     "space-before-function-paren": [2, "never"], // http://eslint.org/docs/rules/space-before-function-paren
     "space-infix-ops": 2,            // http://eslint.org/docs/rules/space-infix-ops
-    //"space-return-throw-case": 2, deprecated    // http://eslint.org/docs/rules/space-return-throw-case
     "spaced-comment": 2,             // http://eslint.org/docs/rules/spaced-comment
 
 /**
@@ -196,13 +182,13 @@
     "react/jsx-sort-prop-types": 0,  // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-prop-types.md
     "react/jsx-uses-react": 2,       // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
     "react/jsx-uses-vars": 2,        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
-    "react/no-did-mount-set-state": [2], // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
+    "react/no-did-mount-set-state": 2, // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
     "react/no-did-update-set-state": 2, // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-update-set-state.md
     "react/no-multi-comp": 2,        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
     "react/no-unknown-property": 2,  // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
     "react/prop-types": 2,           // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
     "react/react-in-jsx-scope": 2,   // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
-    "react/self-closing-comp": 2    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
+    "react/self-closing-comp": 2,    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
     //"react/wrap-multilines": 2,      // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md
     /*"react/sort-comp": [2, {         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
       "order": [
