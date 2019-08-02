@@ -8,3 +8,4 @@ vscode/*
 *.directory
 js/*.js.map
 js/compressed/*.js.map
+package-lock.json
