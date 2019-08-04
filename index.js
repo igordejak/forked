@@ -189,6 +189,7 @@ console.log(a);
 console.log(newA);
 //SyntaxError: redeclaration of const a
 //TypeError: invalid assignment to const `newA'
+//по идее должно быть 5 и 10
 
 // 11.2
 const obj2 = {
@@ -203,6 +204,7 @@ console.log(obj2.a);
 console.log(newObj.a);
 //SyntaxError: redeclaration of const obj2
 // undefined
+// по идее 10 и 10
 
 // 11.3
 const obj3 = {
