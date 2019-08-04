@@ -12,11 +12,11 @@ import data from './mock/data';
  * Задание 2
  * Вывести слово Test в консоль из массива и обьекта всеми способами которые знаешь
  */
-const obj = {
+const obj1 = {
     param: 'Test',
 };
 
-const arr = ['Test'];
+const arr1 = ['Test'];
 
 const arrObj = [{
     param: 'Test',
@@ -35,7 +35,7 @@ const objKeys = {
 
 /**
  * Задание 4
- * вывести в консоль значения полей из обьекта objKeys objValue минимум тремя способами
+ * вывести в консоль значения полей из обьекта objValue минимум тремя способами
  */
 
 const objValue = {
@@ -51,7 +51,7 @@ const objValue = {
  * описать разницу между 'forEach', 'map', 'reduce'
  */
 
-const arr = ['for', 'for..in', 'forEach', 'map', 'reduce'];
+const arr2 = ['for', 'for..in', 'forEach', 'map', 'reduce'];
 
 /**
  * Задача 6
@@ -101,35 +101,35 @@ console.log(a);
 console.log(newA);
 
 // 11.2
-const obj = {
+const obj2 = {
     a: 5,
 };
 
-const newObj = obj;
+const newObj = obj2;
 
 newObj.a = 10;
 
-console.log(obj.a);
+console.log(obj2.a);
 console.log(newObj.a);
 
 // 11.3
-const obj = {
+const obj3 = {
     a: 5,
     log: function() {
         console.log(this.a);
     }
 };
 
-obj.log();
+obj3.log();
 
 // 11.4
-const obj = {
+const obj4 = {
     a: 5,
     log: function() {
         console.log(this.a);
     }
 };
 
-const log = obj.log;
+const log = obj4.log;
 
 log();
