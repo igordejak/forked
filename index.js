@@ -7,13 +7,20 @@ import { promises } from 'fs';
  * и оставить коментарии с описанием разницы между этими обьявлениями
  */
 var  firstVar;
-// обьявлено но не присвоено значение
+// обьявлено но не присвоено значение, видима в пределах функции в которой создается
 
 var firstVar = 0;
 //обьявлено и присвоено значение
 
 let firstVar = 'string';
-//ES6
+//ES6, видима только в пределах блока где обьявлено
+
+const firstVar = 'string';
+//ES6, нельзя переназначитьно можно изменить свойства, например если
+const firstVar = {
+    type: 'string'
+}
+// то тайп можно менять, или добавлять туда что-то еще
 
 
 
@@ -107,11 +114,11 @@ arr2.map(function(element) {
  }
  //1
 
- var sum = new Function('a', 'b', 'return a + b');
+ var testFunc = new Function('a', 'b', 'return a + b');
 console.log(sum(2, 6));
 //2
 
-let func3 = (x, y) => { return x * y };
+let testFunc = (x, y) => { return x * y };
 //3 (ES6)
 
 
@@ -145,7 +152,7 @@ function dog(voice, name) {
 
 var dog1 = new dog("waff", "Sharik");
 
-console.log(dog1)
+console.log(dog1.Say());
 
 /**
  * Задание 9
@@ -189,7 +196,7 @@ console.log(a);
 console.log(newA);
 //SyntaxError: redeclaration of const a
 //TypeError: invalid assignment to const `newA'
-//по идее должно быть 5 и 10
+//по идее должно быть 5 и 10 - надо const заменить на let
 
 // 11.2
 const obj2 = {
@@ -204,7 +211,7 @@ console.log(obj2.a);
 console.log(newObj.a);
 //SyntaxError: redeclaration of const obj2
 // undefined
-// по идее 10 и 10
+// по идее 10 и 10 - надо первую переменную сделать let
 
 // 11.3
 const obj3 = {
