@@ -41,6 +41,11 @@ const arrObj = [{
 console.log(obj1.param);
 console.log(arr1[0]);
 console.log(arr0bj[0].param);
+/*
+* Еще можно так
+*/
+console.log(obj1['param']);
+console.log(arr0bj[0]['param']);
 
 /**
  * Задание 3
@@ -53,9 +58,18 @@ const objKeys = {
     link: '/animals',
 };
 
-console.log(Object.keys(objKeys)[0] + Object.keys(objKeys)[1] + Object.keys(objKeys)[2]);
+console.log(Object.keys(objKeys)[0] + Object.keys(objKeys)[1] + Object.keys(objKeys)[2]); // имеет место быть, но обычно так не делаюется
 console.log(Object.keys(objKeys));
-
+/*
+* Еще можно так
+*/
+for (key in objKeys) {
+    console.log(key)
+}
+//В подобных случаях всегда старайся минимизировать количество вычислений console.log(Object.keys(objKeys)[0] + Object.keys(objKeys)[1] + Object.keys(objKeys)[2]);
+var tempObjKeys = Object.keys(objKeys);
+console.log(tempObjKeys[0] + tempObjKeys[1] + tempObjKeys[2]); // и вместо + в сложении строки лучше использовать Array.join(' ');
+console.log(tempObjKeys.join(' ')); //  вот так) Это связано с проблемами арифметики в JS
 
 /**
  * Задание 4
@@ -68,8 +82,20 @@ const objValue = {
     link: '/animals',
 };
 console.log(objValue.alias + objValue.name + objValue.link);
-console.log(Object.values(objValue)[0] + Object.values(objValue)[1] + Object.values(objValue)[2]);
+console.log(Object.values(objValue)[0] + Object.values(objValue)[1] + Object.values(objValue)[2]); // то де самое что и в примере выше
 console.log(Object.values(objValue));
+/*
+* Еще можно так
+*/
+for (key in objValue) {
+    console.log(objValue[key])
+}
+
+console.log(Object.keys(objValue).map((key) => objValue[key]))
+
+Object.keys(objValue).forEash((key) => {
+    cosnole.log(objValue[key])
+})
 
 
 /**
@@ -99,8 +125,9 @@ arr2.forEach(function(element) {
 
 arr2.map(function(element) {
     console.log(element);
+    return element // если сделать вот такт вот (обьяснение в коменте ниже)
   });
-//вызывает функцию для всех элементов
+//вызывает функцию для всех элементов // и возвращает массив при условии что функция обработчик возвращает значение
 
 
 //редюс добавляет значения всех элементов и выводит одно общее значение, но как с его помощью вывести все эелементы я не понял
@@ -121,7 +148,11 @@ console.log(sum(2, 6));
 let testFunc = (x, y) => { return x * y };
 //3 (ES6)
 
+/*
+* Еще можно так
+*/
 
+let testFunc = function() {};
 
 /**
  * Задание 7
@@ -141,7 +172,7 @@ async function getData() {
  * Задание 8
  * Опиши прототип dog с параметрами voice и name, и функцией Say
  */
-
+// Это как раз функциональное описание, а не прототипное)
 function dog(voice, name) {
 	this.voice = voice,
 	this.name = name,
@@ -158,22 +189,22 @@ console.log(dog1.Say());
  * Задание 9
  * Опиши класс из задания 8 в функциональном стиле
  */
-
+// это в импеоративном стиле (класический ООП)
 class dog2 {
     constructor (voice, name) {
         this.voice = voice,
         this.name = name
     }
     static isDog2(obj) {
-        return obj.constructor === Tuzik;
-     }
+        return obj.constructor === Tuzik; // Tuzik is not defined =)
+    }
 }
 
 /**
  * Задание 10
  * Опиши класс из задания 8 в импеоративном стиле (класический ООП)
  */
-
+// тут норм, только функцию Say пропустил из задания 8)
  class dog2 {
      constructor (voice, name) {
          this.voice = voice,
@@ -196,7 +227,7 @@ console.log(a);
 console.log(newA);
 //SyntaxError: redeclaration of const a
 //TypeError: invalid assignment to const `newA'
-//по идее должно быть 5 и 10 - надо const заменить на let
+//по идее должно быть 5 и 10 - надо const заменить на let // верно
 
 // 11.2
 const obj2 = {
@@ -211,7 +242,7 @@ console.log(obj2.a);
 console.log(newObj.a);
 //SyntaxError: redeclaration of const obj2
 // undefined
-// по идее 10 и 10 - надо первую переменную сделать let
+// по идее 10 и 10 - надо первую переменную сделать let // верно, но что то пошло не так, ошибки быть не должно в этом примере
 
 // 11.3
 const obj3 = {
@@ -222,7 +253,7 @@ const obj3 = {
 };
 
 obj3.log();
-// 5
+// 5 // верно
 
 // 11.4
 const obj4 = {
@@ -235,4 +266,4 @@ const obj4 = {
 const log = obj4.log;
 
 log();
-//undefined
+//undefined // верно
